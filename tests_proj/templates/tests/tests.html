@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %} Tests {% endblock %}
+{% block content %}
+        {% if tests_with_category %}
+            {% for test in tests_with_category %}
+            <div class="card border-light mb-3" style="max-width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title"><a href="{% url 'test' test.id %}" class="list-group-item list-group-item-action list-group-item-light">{{test.test_name}} </a></h5>
+                    <p class="card-text">{{test.test_description}}</p>
+                </div>
+            </div>
+            {% if forloop.counter|divisibleby:"3" or forloop.counter.last %}
+            </div>
+            <br>
+            {% endif %}
+            {% endfor %}
+        {% endif %}
+{% endblock %}

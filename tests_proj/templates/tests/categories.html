@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %} Categories {% endblock %}
+{% block content %}
+        {% if all_categories %}
+
+            <div class="row">
+                {% for category in all_categories %}             
+
+                <div class="card border-light mb-3" style="max-width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title"><a href="{% url 'category_tests' category.id %}" class="list-group-item list-group-item-action list-group-item-light">{{category.category_name}} </a></h5>
+                        <p class="card-text">{{category.category_description}}</p>
+                    </div>
+                </div>
+            {% if forloop.counter|divisibleby:"3" or forloop.counter.last %}
+            </div>
+            <br>
+            {% endif %}
+            {% endfor %}
+        {% endif %}
+{% endblock %}
