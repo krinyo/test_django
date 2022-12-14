@@ -2,11 +2,11 @@
 
 {% block title %} Tests {% endblock %}
 {% block content %}
-    <h1>{{ current_test.test_name }}</h1>
+    <h1>{{ question_text}}</h1>
     
-    {% for question in test_qss %}
+    {% for answer in question_answers %}
 
-    <p>{{ question.question_text }}</p>
+        <p>{{ answer.answer_text }}</p>
 
     {% endfor %} 
 {% endblock %}
